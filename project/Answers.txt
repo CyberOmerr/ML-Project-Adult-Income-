@@ -1,0 +1,75 @@
+# Part A — Theory & Math (10 questions)
+Q1 — Definitions (short)
+
+a) Define *bias* and *variance* in supervised learning and give one practical way to reduce each.
+
+Ans: 
+Bias: represents the error due to overly simplistic assumptions, leading to systematic error and underfitting.
+
+Variance: represents the error due to excessive sensitivity to the traing data, causing overfitting .
+
+b) What is *overfitting* vs *underfitting*and how would you detect it?
+
+Ans:
+overfitting: when a model is too complex and learns the training data perfectly, incuding noise and outliners, resulting in poor performance on new unseen data
+
+underfitting: when a model is too simple to capture the underlying patterns in the data, leading to higher error on both traing and unseen data.
+
+## Q4 — Optimization / Learning rate (MCQ)
+Which learning rate behavior is most likely to cause the loss to oscillate and not converge?
+Answer:
+B) Too large lr
+
+
+---
+
+
+## Q5 — Metrics (short)
+Explain when *Precision* is more important than *Recall*, and give a thresholding strategy to increase precision.
+
+Ans:
+
+When Precision matters more: When false positives are costly (e.g., flagging fraudulent transactions for manual review, sending alerts to doctors).
+
+Thresholding to increase Precision: Increase the positive decision threshold .
+ex. from 0.5 to 0.8 and we can also use precision–recall curves to select a threshold that achieves a target precision.
+
+
+---
+
+
+## Q6 — Regularization (short)
+Explain L1 vs L2 regularization effects on weights and one scenario where L1 is preferred.
+
+Ans:
+
+L1 (Lasso): Promotes sparsity by driving some weights exactly to zero, i.e feature selection effect.
+
+L2 (Ridge): Shrinks weights smoothly toward zero, discouraging large coefficients but rarely zeroing them.
+
+Prefer L1 when you expect many irrelevant features and they dont have any effect on the training the model.
+
+
+---
+
+
+##Q7 — Cross-validation (MCQ)
+Which CV scheme to use for highly temporal data?
+Answer:
+C) TimeSeriesSplit
+
+
+---
+
+
+## Q10 — Data leakage (short)
+Define data leakage and give one concrete example and how to prevent it.
+
+Ans:
+
+Definition: When information from outside the training data, especially the test set or future data, is used to create the model, inflating performance estimates.
+
+Example: Imputing missing values using the entire dataset before splitting into train/test (test info leaks into train).
+
+Prevention: Split first; fit imputers/encoders/scalers only on training data inside a Pipeline/ColumnTransformer and then transform validation/test.
+
